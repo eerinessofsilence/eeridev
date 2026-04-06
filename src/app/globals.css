@@ -32,6 +32,12 @@
   body {
     @apply bg-background font-sans text-text-muted;
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
 }
 
 @layer utilities {

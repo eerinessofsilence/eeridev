@@ -9,9 +9,9 @@ export function Header() {
     { href: '/projects', label: 'Projects' },
   ];
 
-  let pathName = usePathname();
+  const pathName = usePathname();
   return (
-    <header className="fixed inset-x-0 border-b border-border/25 bg-foreground/25 backdrop-blur-md">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-border/25 bg-foreground/50 backdrop-blur-md">
       <div className="container-small flex justify-between gap-6 py-4">
         <a href="/" className="group font-medium tracking-tight text-text">
           eeri.dev

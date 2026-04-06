@@ -10,7 +10,7 @@ export function Footer() {
     { href: '/projects', label: 'Projects' },
   ];
 
-  let pathName = usePathname();
+  const pathName = usePathname();
 
   return (
     <footer className="container-small flex items-center justify-between border-t border-border/25 py-6">

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { SmoothScroll } from '@/components/providers/SmoothScroll';
 import './globals.css';
 
 const geistSans = Geist({
@@ -67,6 +68,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-screen bg-background font-mono text-text-muted">
+        <SmoothScroll />
         <div className="relative isolate flex min-h-screen flex-col overflow-hidden">
           <Header />
           <main className="container flex flex-1 py-8 pt-24">{children}</main>
