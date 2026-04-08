@@ -1,6 +1,15 @@
 import Image from 'next/image';
 import type { ComponentType } from 'react';
-import { Clock3, Code2, Globe, Mail, MapPin, Users } from 'lucide-react';
+import {
+  ArrowRight,
+  Clock3,
+  Code2,
+  Globe,
+  Mail,
+  MapPin,
+  ArrowUpRight,
+  Users,
+} from 'lucide-react';
 import { ContributionMapClient } from '@/components/pages/ContributionMapClient';
 
 interface Fact {
@@ -88,7 +97,13 @@ function StackPill({
     <span
       className={`inline-flex items-center gap-2 rounded-lg border border-dashed px-2 py-1 tracking-tight ${toneClass}`}
     >
-      <Image src={src} alt={name} width={16} height={16} className="h-4 w-4" />
+      <Image
+        src={src}
+        alt={name}
+        width={16}
+        height={16}
+        className="h-4 w-auto shrink-0"
+      />
       {name}
     </span>
   );
@@ -165,6 +180,33 @@ const featuredProjects = [
       technologies[4],
       technologies[6],
       technologies[7],
+    ],
+  },
+];
+
+const experienceJobs = [
+  {
+    logo: '/',
+    position: 'Full Stack Developer',
+    name: 'IVE Studio',
+    date: 'Jan 2025 - Present',
+    description:
+      'Developing modern full-stack web applications with a focus on scalable architecture, clean UI, and performance optimization.',
+    bullets: [
+      'Built responsive web platforms using Next.js, TypeScript, and modern backend services',
+      'Improved application speed, maintainability, and user experience through optimized architecture',
+    ],
+  },
+  {
+    logo: '/',
+    position: 'Full Stack Developer',
+    name: 'AI-DEF',
+    date: 'Apr 2023 - Dec 2024',
+    description:
+      'Contributed to the development of corporate and product-focused web platforms for defense and technology solutions.',
+    bullets: [
+      'Developed scalable frontend and backend features for product showcase and information systems',
+      'Enhanced performance, UI consistency, and maintainability across multiple internal platforms',
     ],
   },
 ];
@@ -314,7 +356,7 @@ export default function Home() {
                   />
                 </span>
                 <Image
-                  className="h-9 w-9 transition-transform duration-200 group-hover:scale-110"
+                  className="h-9 w-auto max-w-9 transition-transform duration-200 group-hover:scale-110"
                   src={technology.src}
                   alt={technology.name}
                   width={36}
@@ -332,7 +374,7 @@ export default function Home() {
             {featuredProjects.map((project) => (
               <div
                 key={project.name}
-                className="rounded-2xl border border-border/50 font-sans transition-colors duration-200 hover:border-border/75"
+                className="rounded-2xl border border-border/50 bg-foreground font-sans transition-colors duration-200 hover:border-border/75"
               >
                 <div className="flex items-center justify-center">
                   <img
@@ -370,7 +412,7 @@ export default function Home() {
                           />
                         </span>
                         <Image
-                          className="h-9 w-9 transition-transform duration-200 group-hover:scale-110"
+                          className="h-9 w-auto max-w-9 transition-transform duration-200 group-hover:scale-110"
                           src={tech.src}
                           alt={tech.name}
                           width={24}
@@ -382,6 +424,151 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </section>
+        <section className="space-y-5">
+          <p className="text-sm tracking-tight text-text-muted/50 uppercase">
+            Experience
+          </p>
+          <div className="grid gap-6">
+            {experienceJobs.map((job) => (
+              <div
+                key={job.name}
+                className="space-y-3 rounded-2xl border border-border/50 bg-foreground p-5 font-sans transition-colors duration-200 hover:border-border/75"
+              >
+                <div className="flex justify-between">
+                  <div className="flex items-center gap-3">
+                    <img
+                      src={job.logo}
+                      className="h-16 w-16 rounded-2xl"
+                      alt={job.name}
+                    />
+                    <div className="space-y-2">
+                      <h1 className="text-xl font-medium text-text">
+                        {job.position}
+                      </h1>
+                      <span className="flex gap-3 text-text-muted/50">
+                        <p className="text-text-muted">{job.name}</p>
+                        <p>•</p>
+                        <p>Remote, Full-time</p>
+                      </span>
+                    </div>
+                  </div>
+                  <div className="text-text-muted/50">
+                    <p>{job.date}</p>
+                  </div>
+                </div>
+                <p>{job.description}</p>
+                <ul className="space-y-3">
+                  {job.bullets.map((bullet) => (
+                    <li key={bullet} className="flex items-center gap-3">
+                      <span className="h-2 w-2 rounded-full bg-linear-to-br from-secondary/75 to-secondary shadow-inner shadow-text-muted/25"></span>
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+        <section className="space-y-5">
+          <p className="text-sm tracking-tight text-text-muted/50 uppercase">
+            Let's work together
+          </p>
+          <div className="grid grid-cols-2 gap-6 font-sans">
+            <div className="flex flex-col justify-between space-y-3 rounded-xl border border-border/50 bg-foreground p-5">
+              <div className="space-y-2">
+                <h1 className="text-xl font-medium text-text">Get in Touch</h1>
+                <p>
+                  Choose your preferred method to connect and let's discuss your
+                  project
+                </p>
+              </div>
+              <div className="space-y-3">
+                <a
+                  href="mailto:eeri.dev@gmail.com"
+                  className="flex items-center justify-between rounded-xl border border-border/75 bg-foreground p-3 transition-colors duration-200 hover:border-border hover:bg-secondary/25"
+                >
+                  <div className="flex items-center gap-3">
+                    <Mail className="h-5 w-5 text-text-muted/75" />
+                    <div>
+                      <h1>eeri.dev@gmail.com</h1>
+                      <p className="text-xs text-text-muted/75">
+                        Quick inquiries & questions
+                      </p>
+                    </div>
+                  </div>
+                  <ArrowUpRight className="h-4 w-4 text-text-muted/75" />
+                </a>
+                <a
+                  href="https://x.com/eeridev"
+                  className="flex items-center justify-between rounded-xl border border-border/75 bg-foreground p-3 transition-colors duration-200 hover:border-border hover:bg-secondary/25"
+                >
+                  <div className="flex items-center gap-3">
+                    <svg
+                      className="h-4.5 w-4.5"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                    </svg>{' '}
+                    <div>
+                      <h1>Connect on X</h1>
+                      <p className="text-xs text-text-muted/75">
+                        Follow for updates & insights
+                      </p>
+                    </div>
+                  </div>
+                  <ArrowUpRight className="h-4 w-4 text-text-muted/75" />
+                </a>
+                <div className="border-t border-border/25 bg-foreground pt-3">
+                  <p className="text-xs text-text-muted/50">
+                    Response within 24 hours • Available for hire
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="space-y-3 rounded-xl border border-border/50 bg-foreground p-5">
+              <div className="space-y-2">
+                <h1 className="text-xl font-medium text-text">
+                  Send a Message
+                </h1>
+                <p>
+                  Prefer to write? Fill out the form and I'll get back to you
+                  within 24 hours
+                </p>
+              </div>
+              <form className="space-y-2">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Full Name"
+                  aria-label="Full Name"
+                  className="w-full rounded-xl border border-border/50 bg-background px-4 py-2 text-text transition-colors duration-200 outline-none placeholder:text-text-muted/50 focus:border-border focus:bg-secondary/10"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address"
+                  aria-label="Email Address"
+                  className="w-full rounded-xl border border-border/50 bg-background px-4 py-2 text-text transition-colors duration-200 outline-none placeholder:text-text-muted/50 focus:border-border focus:bg-secondary/10"
+                />
+                <textarea
+                  name="message"
+                  placeholder="Your Message"
+                  aria-label="Your Message"
+                  rows={6}
+                  className="h-30 w-full resize-none rounded-xl border border-border/50 bg-background px-4 py-2 text-lg text-text transition-colors duration-200 outline-none placeholder:text-text-muted/35 focus:border-border focus:bg-secondary/15"
+                />
+                <button
+                  type="button"
+                  className="flex w-full items-center justify-center gap-3 rounded-xl border border-border/50 bg-secondary/15 px-6 py-2 text-lg font-medium text-text-muted transition-colors duration-200 hover:border-border hover:bg-secondary/25 hover:text-text"
+                >
+                  <span>Send Message</span>
+                  <ArrowRight className="h-5 w-5" />
+                </button>
+              </form>
+            </div>
           </div>
         </section>
       </div>

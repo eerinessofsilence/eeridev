@@ -2,8 +2,8 @@
 
 import { useEffect } from 'react';
 
-const WHEEL_SPEED = 1.4;
-const LERP_FACTOR = 0.42;
+const WHEEL_SPEED = 0.9;
+const LERP_FACTOR = 0.6;
 
 function clamp(value: number, min: number, max: number) {
   return Math.min(Math.max(value, min), max);
