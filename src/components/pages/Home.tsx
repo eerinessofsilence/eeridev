@@ -117,7 +117,7 @@ const featuredProjects = [
   {
     imageSrc: '/ai-def-screen.jpg',
     name: 'AI-DEF',
-    link: 'https://www.ai-def.com',
+    projectLink: 'https://www.ai-def.com',
     description:
       'AI-DEF is an informational website presenting the company’s military and defense products, advanced tactical systems, and AI-powered security technologies.',
     techStack: [
@@ -130,6 +130,41 @@ const featuredProjects = [
       technologies[8],
       technologies[9],
       technologies[10],
+    ],
+  },
+  {
+    imageSrc: '/tactica-screen.jpg',
+    name: 'Tactica',
+    githubLink: 'https://github.com/eerinessofsilence/tactica',
+    projectLink: 'https://tactica-six.vercel.app',
+    description:
+      'Tactica is a revenue workspace prototype. The project currently combines a React marketing site and demo shell with a minimal Django backend for session-based authentication.',
+    techStack: [
+      technologies[0],
+      technologies[2],
+      technologies[3],
+      technologies[4],
+      technologies[6],
+      technologies[7],
+      technologies[8],
+      technologies[9],
+      technologies[10],
+    ],
+  },
+  {
+    imageSrc: '/4seasons-screen.jpg',
+    name: '4Seasons',
+    githubLink: 'https://github.com/eerinessofsilence/4seasons',
+    projectLink: 'https://4seasons-one.vercel.app',
+    description:
+      '4Seasons is an internet service provider website offering high-speed broadband, reliable connectivity, and modern network solutions for homes and businesses.',
+    techStack: [
+      technologies[0],
+      technologies[2],
+      technologies[3],
+      technologies[4],
+      technologies[6],
+      technologies[7],
     ],
   },
 ];
@@ -311,9 +346,14 @@ export default function Home() {
                     <h1 className="text-lg font-medium text-text">
                       {project.name}
                     </h1>
-                    <a href={project.link}>
-                      <Globe className="h-5 w-5 transition-colors duration-200 hover:text-text" />
-                    </a>
+                    <div className="flex gap-3">
+                      <a href={project.githubLink}>
+                        <GitHubMark className="h-5 w-5 transition-colors duration-200 hover:text-text" />
+                      </a>
+                      <a href={project.projectLink}>
+                        <Globe className="h-5 w-5 transition-colors duration-200 hover:text-text" />
+                      </a>
+                    </div>
                   </div>
                   <p className="leading-6 text-pretty">{project.description}</p>
                   <div className="flex gap-2">
