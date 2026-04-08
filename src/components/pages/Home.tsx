@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import type { ComponentType } from 'react';
-import { Clock3, Code2, Globe, Mail, MapPin, UserRound } from 'lucide-react';
+import { Clock3, Code2, Globe, Mail, MapPin, Users } from 'lucide-react';
+import { ContributionMapClient } from '@/components/pages/ContributionMapClient';
 
 interface Fact {
   icon: ComponentType<{ className?: string }>;
@@ -17,8 +18,8 @@ const primaryFacts: Fact[] = [
   },
   {
     icon: MapPin,
-    label: 'Base',
-    value: 'Remote / Europe',
+    label: 'Location',
+    value: 'Bucharest, Romania, Europe',
   },
   {
     icon: Mail,
@@ -26,9 +27,6 @@ const primaryFacts: Fact[] = [
     value: 'eeri.dev@gmail.com',
     href: 'mailto:eeri.dev@gmail.com',
   },
-] as const;
-
-const secondaryFacts: Fact[] = [
   {
     icon: Clock3,
     label: 'Timezone',
@@ -41,9 +39,9 @@ const secondaryFacts: Fact[] = [
     href: 'https://eeri.dev',
   },
   {
-    icon: UserRound,
+    icon: Users,
     label: 'Focus',
-    value: 'Develop systems',
+    value: 'he/him',
   },
 ] as const;
 
@@ -97,15 +95,43 @@ function StackPill({
 }
 
 const technologies = [
-  'python',
-  'django',
-  'html',
-  'css',
-  'typescript',
-  'react',
-  'tailwindcss',
-  'nextjs',
-  'docker',
+  { name: 'TypeScript', src: '/technologies/typescript.svg' },
+  { name: 'JavaScript', src: '/technologies/javascript.svg' },
+  { name: 'React', src: '/technologies/react.svg' },
+  { name: 'Tailwind CSS', src: '/technologies/tailwindcss.svg' },
+  { name: 'Vite', src: '/technologies/vite.svg' },
+  { name: 'Next.js', src: '/technologies/nextjs.svg' },
+  { name: 'HTML', src: '/technologies/html.svg' },
+  { name: 'CSS', src: '/technologies/css.svg' },
+  { name: 'Python', src: '/technologies/python.svg' },
+  { name: 'Django', src: '/technologies/django.svg' },
+  { name: 'PostgreSQL', src: '/technologies/postgresql.svg' },
+  { name: 'Docker', src: '/technologies/docker.svg' },
+  { name: 'Git', src: '/technologies/git.svg' },
+  { name: 'GitHub', src: '/technologies/github.svg' },
+  { name: 'Rust', src: '/technologies/rust.svg' },
+  { name: 'Java', src: '/technologies/java.svg' },
+];
+
+const featuredProjects = [
+  {
+    imageSrc: '/ai-def-screen.jpg',
+    name: 'AI-DEF',
+    link: 'https://www.ai-def.com',
+    description:
+      'AI-DEF is an informational website presenting the company’s military and defense products, advanced tactical systems, and AI-powered security technologies.',
+    techStack: [
+      technologies[0],
+      technologies[2],
+      technologies[3],
+      technologies[4],
+      technologies[6],
+      technologies[7],
+      technologies[8],
+      technologies[9],
+      technologies[10],
+    ],
+  },
 ];
 
 export default function Home() {
@@ -129,7 +155,7 @@ export default function Home() {
 
             <div className="flex min-w-0 flex-1 flex-col gap-3">
               <div className="flex items-center gap-3">
-                <h1 className="text-3xl font-medium tracking-tight text-text">
+                <h1 className="font-sans text-3xl font-semibold tracking-tight text-text">
                   Aleksandr Hubanov
                 </h1>
                 <span className="inline-flex h-6 w-fit items-center gap-3 rounded-full border border-border/25 bg-foreground px-3 text-sm text-text-muted">
@@ -138,91 +164,65 @@ export default function Home() {
                 </span>
               </div>
 
-              <p className="text-xl text-text-muted/75">Full-Stack developer</p>
+              <p className="text-xl text-text-muted/75">Developer</p>
             </div>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-2 lg:gap-16">
-            <div className="space-y-2">
-              {primaryFacts.map((fact) => {
-                const Icon = fact.icon;
-                const content = (
-                  <>
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-border/60 bg-white/4 text-text-muted shadow-[0_0_0_1px_rgba(255,255,255,0.02)]">
-                      <Icon className="h-4 w-4" />
-                    </span>
-                    <div className="space-y-1">
-                      <p className="text-lg tracking-tight wrap-break-word">
-                        {fact.value}
-                      </p>
-                    </div>
-                  </>
-                );
+          <div className="grid grid-cols-2 gap-2">
+            {primaryFacts.map((fact) => {
+              const Icon = fact.icon;
+              const content = (
+                <div className="flex gap-2">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-border/25 bg-secondary/50 text-text-muted">
+                    <Icon className="h-3 w-3" />
+                  </span>
+                  <p className="tracking-tight wrap-break-word">{fact.value}</p>
+                </div>
+              );
 
-                if (fact.href) {
-                  return (
-                    <a
-                      key={fact.label}
-                      href={fact.href}
-                      className="group flex items-center gap-4 rounded-3xl transition-colors hover:text-text"
-                    >
-                      {content}
-                    </a>
-                  );
-                }
-
+              if (fact.href) {
                 return (
-                  <div key={fact.label} className="flex items-center gap-4">
+                  <a
+                    key={fact.label}
+                    href={fact.href}
+                    className="group flex items-center gap-4 rounded-3xl transition-colors hover:text-text"
+                  >
                     {content}
-                  </div>
+                  </a>
                 );
-              })}
-            </div>
-            <div className="space-y-2">
-              {secondaryFacts.map((fact) => {
-                const Icon = fact.icon;
-                const content = (
-                  <>
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-border/60 bg-white/4 text-text-muted shadow-[0_0_0_1px_rgba(255,255,255,0.02)]">
-                      <Icon className="h-4 w-4" />
-                    </span>
-                    <div className="space-y-1">
-                      <p className="text-lg tracking-tight wrap-break-word">
-                        {fact.value}
-                      </p>
-                    </div>
-                  </>
-                );
+              }
 
-                if (fact.href) {
-                  return (
-                    <a
-                      key={fact.label}
-                      href={fact.href}
-                      className="group flex items-center gap-4 rounded-3xl transition-colors hover:text-text"
-                    >
-                      {content}
-                    </a>
-                  );
-                }
-
-                return (
-                  <div key={fact.label} className="flex items-center gap-4">
-                    {content}
-                  </div>
-                );
-              })}
-            </div>
+              return (
+                <div key={fact.label} className="flex items-center gap-4">
+                  {content}
+                </div>
+              );
+            })}
           </div>
         </div>
 
         <div className="tracking-tight text-text-muted">
           <p>
             I build clean, interactive web products with{' '}
-            <StackPill src="/typescript.svg" name="TypeScript" tone="blue" />,{' '}
-            <StackPill src="/react.svg" name="React" tone="cyan" />,{' '}
-            <StackPill src="/nextjs.svg" name="Next.js" tone="neutral" />, and{' '}
-            <StackPill src="/tailwindcss.svg" name="Tailwind CSS" tone="teal" />
+            <StackPill
+              src="/technologies/typescript.svg"
+              name="TypeScript"
+              tone="blue"
+            />
+            ,{' '}
+            <StackPill src="/technologies/react.svg" name="React" tone="cyan" />
+            ,{' '}
+            <StackPill
+              src="/technologies/nextjs.svg"
+              name="Next.js"
+              tone="neutral"
+            />
+            , and{' '}
+            <StackPill
+              src="/technologies/tailwindcss.svg"
+              name="Tailwind CSS"
+              tone="teal"
+            />
             . The focus is on sharp UI, clear structure, and interfaces that
             stay readable as the product grows.
           </p>
@@ -258,6 +258,92 @@ export default function Home() {
             })}
           </div>
         </div>
+
+        <ContributionMapClient />
+
+        <section className="space-y-5">
+          <p className="text-sm tracking-tight text-text-muted/50 uppercase">
+            Tech Stack
+          </p>
+          <div className="flex gap-4">
+            {technologies.map((technology) => (
+              <div
+                key={technology.name}
+                className="group relative flex items-center justify-center"
+              >
+                <span className="pointer-events-none absolute bottom-full left-1/2 z-10 mb-2 -translate-x-1/2 translate-y-1 rounded-lg border border-border/25 bg-foreground px-3 py-1 text-xs tracking-tight text-nowrap text-text opacity-0 transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100">
+                  {technology.name}
+                  <span
+                    aria-hidden="true"
+                    className="absolute top-full left-1/2 -z-10 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-xs border-r border-b border-border/25 bg-foreground"
+                  />
+                </span>
+                <Image
+                  className="h-9 w-9 transition-transform duration-200 group-hover:scale-110"
+                  src={technology.src}
+                  alt={technology.name}
+                  width={36}
+                  height={36}
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+        <section className="space-y-5">
+          <p className="text-sm tracking-tight text-text-muted/50 uppercase">
+            Featured Projects
+          </p>
+          <div className="grid grid-cols-2 gap-6">
+            {featuredProjects.map((project) => (
+              <div
+                key={project.name}
+                className="rounded-2xl border border-border/50 font-sans transition-colors duration-200 hover:border-border/75"
+              >
+                <div className="flex items-center justify-center">
+                  <img
+                    src={project.imageSrc}
+                    className="rounded-t-2xl"
+                    alt={project.name}
+                  />
+                </div>
+                <div className="space-y-5 p-5">
+                  <div className="flex items-center justify-between">
+                    <h1 className="text-lg font-medium text-text">
+                      {project.name}
+                    </h1>
+                    <a href={project.link}>
+                      <Globe className="h-5 w-5 transition-colors duration-200 hover:text-text" />
+                    </a>
+                  </div>
+                  <p className="leading-6 text-pretty">{project.description}</p>
+                  <div className="flex gap-2">
+                    {project.techStack.map((tech) => (
+                      <div
+                        key={tech.name}
+                        className="group relative flex items-center justify-center"
+                      >
+                        <span className="pointer-events-none absolute bottom-full left-1/2 z-10 mb-2 -translate-x-1/2 translate-y-1 rounded-lg border border-border/25 bg-foreground px-3 py-1 text-xs tracking-tight text-nowrap text-text opacity-0 transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100">
+                          {tech.name}
+                          <span
+                            aria-hidden="true"
+                            className="absolute top-full left-1/2 -z-10 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-xs border-r border-b border-border/25 bg-foreground"
+                          />
+                        </span>
+                        <Image
+                          className="h-9 w-9 transition-transform duration-200 group-hover:scale-110"
+                          src={tech.src}
+                          alt={tech.name}
+                          width={24}
+                          height={24}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
       </div>
     </section>
   );

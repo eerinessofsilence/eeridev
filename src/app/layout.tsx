@@ -67,7 +67,10 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-screen bg-background font-mono text-text-muted">
+      <body
+        suppressHydrationWarning
+        className="min-h-screen bg-background font-mono text-text-muted"
+      >
         <SmoothScroll />
         <div className="relative isolate flex min-h-screen flex-col overflow-hidden">
           <Header />
