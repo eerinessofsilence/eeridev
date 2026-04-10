@@ -64,4 +64,27 @@
       max-width: 62rem;
     }
   }
+
+  .brief-cursor {
+    animation: brief-cursor-blink 1.05s steps(1, end) infinite;
+  }
+}
+
+@keyframes brief-cursor-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+
+  46%,
+  100% {
+    opacity: 0.16;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brief-cursor {
+    opacity: 0.85;
+    animation: none !important;
+  }
 }

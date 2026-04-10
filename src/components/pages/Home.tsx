@@ -11,6 +11,7 @@ import {
   Users,
 } from 'lucide-react';
 import { ContributionMapClient } from '@/components/pages/ContributionMapClient';
+import { ProjectBriefPreview } from '@/components/pages/ProjectBriefPreview';
 
 interface Fact {
   icon: ComponentType<{ className?: string }>;
@@ -22,34 +23,34 @@ interface Fact {
 const primaryFacts: Fact[] = [
   {
     icon: Code2,
-    label: 'Role',
-    value: 'Full-Stack Developer',
+    label: 'Specialty',
+    value: 'Full-Stack Engineering',
   },
   {
     icon: MapPin,
-    label: 'Location',
-    value: 'Bucharest, Romania, Europe',
+    label: 'Base',
+    value: 'Bucharest, Romania',
   },
   {
     icon: Mail,
-    label: 'Email',
+    label: 'Contact',
     value: 'eeri.dev@gmail.com',
     href: 'mailto:eeri.dev@gmail.com',
   },
   {
     icon: Clock3,
-    label: 'Timezone',
-    value: 'UTC+2 / flexible overlap',
+    label: 'Hours',
+    value: 'UTC+2 with flexible overlap',
   },
   {
     icon: Globe,
-    label: 'Website',
+    label: 'Site',
     value: 'eeri.dev',
     href: 'https://eeri.dev',
   },
   {
     icon: Users,
-    label: 'Focus',
+    label: 'Pronouns',
     value: 'he/him',
   },
 ] as const;
@@ -109,7 +110,12 @@ function StackPill({
   );
 }
 
-const technologies = [
+interface Technology {
+  name: string;
+  src: string;
+}
+
+const technologies: Technology[] = [
   { name: 'TypeScript', src: '/technologies/typescript.svg' },
   { name: 'JavaScript', src: '/technologies/javascript.svg' },
   { name: 'React', src: '/technologies/react.svg' },
@@ -128,13 +134,22 @@ const technologies = [
   { name: 'Java', src: '/technologies/java.svg' },
 ];
 
-const featuredProjects = [
+interface FeaturedProject {
+  imageSrc: string;
+  name: string;
+  githubLink?: string;
+  projectLink: string;
+  description: string;
+  techStack: Technology[];
+}
+
+const featuredProjects: FeaturedProject[] = [
   {
     imageSrc: '/ai-def-screen.jpg',
     name: 'AI-DEF',
     projectLink: 'https://www.ai-def.com',
     description:
-      'AI-DEF is an informational website presenting the company’s military and defense products, advanced tactical systems, and AI-powered security technologies.',
+      'A corporate site that presents defense products, tactical systems, and AI-driven security capabilities in a clearer product narrative.',
     techStack: [
       technologies[0],
       technologies[2],
@@ -153,7 +168,7 @@ const featuredProjects = [
     githubLink: 'https://github.com/eerinessofsilence/tactica',
     projectLink: 'https://tactica-six.vercel.app',
     description:
-      'Tactica is a revenue workspace prototype. The project currently combines a React marketing site and demo shell with a minimal Django backend for session-based authentication.',
+      'A revenue operations concept that pairs a React-based public experience with a lightweight Django backend for authenticated flows.',
     techStack: [
       technologies[0],
       technologies[2],
@@ -172,7 +187,7 @@ const featuredProjects = [
     githubLink: 'https://github.com/eerinessofsilence/4seasons',
     projectLink: 'https://4seasons-one.vercel.app',
     description:
-      '4Seasons is an internet service provider website offering high-speed broadband, reliable connectivity, and modern network solutions for homes and businesses.',
+      'A provider website built to showcase broadband services, connection plans, and reliable network support for homes and businesses.',
     techStack: [
       technologies[0],
       technologies[2],
@@ -191,10 +206,10 @@ const experienceJobs = [
     name: 'IVE Studio',
     date: 'Jan 2025 - Present',
     description:
-      'Developing modern full-stack web applications with a focus on scalable architecture, clean UI, and performance optimization.',
+      'Building end-to-end web products with attention to maintainable architecture, interface quality, and measurable performance.',
     bullets: [
-      'Built responsive web platforms using Next.js, TypeScript, and modern backend services',
-      'Improved application speed, maintainability, and user experience through optimized architecture',
+      'Delivered responsive applications with Next.js, Vite, TypeScript, and backend integrations shaped around product needs',
+      'Refined architecture and frontend patterns to improve load time, code clarity, and long-term maintainability',
     ],
   },
   {
@@ -203,13 +218,34 @@ const experienceJobs = [
     name: 'AI-DEF',
     date: 'Apr 2023 - Dec 2024',
     description:
-      'Contributed to the development of corporate and product-focused web platforms for defense and technology solutions.',
+      'Worked on company and product websites focused on defense technology and supporting internal information platforms.',
     bullets: [
-      'Developed scalable frontend and backend features for product showcase and information systems',
-      'Enhanced performance, UI consistency, and maintainability across multiple internal platforms',
+      'Implemented frontend and backend features for product pages, content structure, and supporting information systems',
+      'Standardized UI patterns and performance improvements across several internal and public-facing interfaces',
     ],
   },
 ];
+
+const projectBriefs = [
+  {
+    project: 'new product site, redesign, or internal dashboard',
+    goals: ['cleaner UX', 'stronger frontend', 'faster shipping'],
+    timeline: 'urgent launch support or planned iteration',
+    stack: ['Next.js', 'React', 'TypeScript', 'Tailwind', 'backend support'],
+  },
+  {
+    project: 'landing page refresh or conversion-focused marketing site',
+    goals: ['clearer messaging', 'better performance', 'higher conversion'],
+    timeline: 'launch in 2-4 weeks',
+    stack: ['Next.js', 'CMS integration', 'analytics', 'SEO', 'motion polish'],
+  },
+  {
+    project: 'internal dashboard, admin panel, or ops workspace',
+    goals: ['simpler flows', 'reliable data views', 'less manual work'],
+    timeline: 'phased rollout with quick wins',
+    stack: ['React', 'TypeScript', 'API integration', 'auth', 'tables/charts'],
+  },
+] as const;
 
 export default function Home() {
   return (
@@ -237,11 +273,11 @@ export default function Home() {
                 </h1>
                 <span className="inline-flex h-6 w-fit items-center gap-3 rounded-full border border-border/25 bg-foreground px-3 text-sm text-text-muted">
                   <span className="h-2 w-2 rounded-full bg-emerald-500" />
-                  Available for work
+                  Open to new projects
                 </span>
               </div>
 
-              <p className="text-xl text-text-muted/75">Developer</p>
+              <p className="text-xl text-text-muted/75">Full-stack engineer</p>
             </div>
           </div>
 
@@ -280,7 +316,7 @@ export default function Home() {
 
         <div className="tracking-tight text-text-muted">
           <p>
-            I build clean, interactive web products with{' '}
+            I design and ship polished web products with{' '}
             <StackPill
               src="/technologies/typescript.svg"
               name="TypeScript"
@@ -300,8 +336,9 @@ export default function Home() {
               name="Tailwind CSS"
               tone="teal"
             />
-            . The focus is on sharp UI, clear structure, and interfaces that
-            stay readable as the product grows.
+            . My work stays centered on fast interfaces, clear product
+            structure, and codebases that are still comfortable to extend six
+            months later.
           </p>
         </div>
 
@@ -312,7 +349,7 @@ export default function Home() {
               className="inline-flex h-10 items-center gap-2 rounded-lg border border-border/50 bg-foreground px-4 tracking-tight transition-colors duration-200 hover:bg-secondary/50"
             >
               <Mail className="h-4 w-4" />
-              Contact
+              Email me
             </a>
           </div>
 
@@ -340,9 +377,9 @@ export default function Home() {
 
         <section className="space-y-5">
           <p className="text-sm tracking-tight text-text-muted/50 uppercase">
-            Tech Stack
+            Toolkit
           </p>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap items-center gap-5">
             {technologies.map((technology) => (
               <div
                 key={technology.name}
@@ -368,7 +405,7 @@ export default function Home() {
         </section>
         <section className="space-y-5">
           <p className="text-sm tracking-tight text-text-muted/50 uppercase">
-            Featured Projects
+            Selected Projects
           </p>
           <div className="grid grid-cols-2 gap-6">
             {featuredProjects.map((project) => (
@@ -389,16 +426,18 @@ export default function Home() {
                       {project.name}
                     </h1>
                     <div className="flex gap-3">
-                      <a href={project.githubLink}>
-                        <GitHubMark className="h-5 w-5 transition-colors duration-200 hover:text-text" />
-                      </a>
+                      {project.githubLink ? (
+                        <a href={project.githubLink}>
+                          <GitHubMark className="h-5 w-5 transition-colors duration-200 hover:text-text" />
+                        </a>
+                      ) : null}
                       <a href={project.projectLink}>
                         <Globe className="h-5 w-5 transition-colors duration-200 hover:text-text" />
                       </a>
                     </div>
                   </div>
                   <p className="leading-6 text-pretty">{project.description}</p>
-                  <div className="flex gap-2">
+                  <div className="flex flex-wrap gap-3">
                     {project.techStack.map((tech) => (
                       <div
                         key={tech.name}
@@ -412,7 +451,7 @@ export default function Home() {
                           />
                         </span>
                         <Image
-                          className="h-9 w-auto max-w-9 transition-transform duration-200 group-hover:scale-110"
+                          className="h-8 w-8 transition-transform duration-200 group-hover:scale-110"
                           src={tech.src}
                           alt={tech.name}
                           width={24}
@@ -428,7 +467,7 @@ export default function Home() {
         </section>
         <section className="space-y-5">
           <p className="text-sm tracking-tight text-text-muted/50 uppercase">
-            Experience
+            Recent Experience
           </p>
           <div className="grid gap-6">
             {experienceJobs.map((job) => (
@@ -473,101 +512,60 @@ export default function Home() {
         </section>
         <section className="space-y-5">
           <p className="text-sm tracking-tight text-text-muted/50 uppercase">
-            Let's work together
+            Start a Project
           </p>
-          <div className="grid grid-cols-2 gap-6 font-sans">
-            <div className="flex flex-col justify-between space-y-3 rounded-xl border border-border/50 bg-foreground p-5">
+          <div className="flex flex-col justify-between space-y-3 rounded-xl border border-border/50 bg-foreground p-5 font-sans">
+            <ProjectBriefPreview projectBriefs={projectBriefs} />
+            <div className="space-y-3">
               <div className="space-y-2">
-                <h1 className="text-xl font-medium text-text">Get in Touch</h1>
+                <h1 className="text-xl font-medium text-text">Reach Out</h1>
                 <p>
-                  Choose your preferred method to connect and let's discuss your
-                  project
+                  Use whichever channel is easiest and send a few details about
+                  what you need.
                 </p>
               </div>
-              <div className="space-y-3">
-                <a
-                  href="mailto:eeri.dev@gmail.com"
-                  className="flex items-center justify-between rounded-xl border border-border/75 bg-foreground p-3 transition-colors duration-200 hover:border-border hover:bg-secondary/25"
-                >
-                  <div className="flex items-center gap-3">
-                    <Mail className="h-5 w-5 text-text-muted/75" />
-                    <div>
-                      <h1>eeri.dev@gmail.com</h1>
-                      <p className="text-xs text-text-muted/75">
-                        Quick inquiries & questions
-                      </p>
-                    </div>
+              <a
+                href="mailto:eeri.dev@gmail.com"
+                className="flex items-center justify-between rounded-xl border border-border/75 bg-foreground p-3 transition-colors duration-200 hover:border-border hover:bg-secondary/25"
+              >
+                <div className="flex items-center gap-3">
+                  <Mail className="h-5 w-5 text-text-muted/75" />
+                  <div>
+                    <h1>eeri.dev@gmail.com</h1>
+                    <p className="text-xs text-text-muted/75">
+                      Project inquiries and short questions
+                    </p>
                   </div>
-                  <ArrowUpRight className="h-4 w-4 text-text-muted/75" />
-                </a>
-                <a
-                  href="https://x.com/eeridev"
-                  className="flex items-center justify-between rounded-xl border border-border/75 bg-foreground p-3 transition-colors duration-200 hover:border-border hover:bg-secondary/25"
-                >
-                  <div className="flex items-center gap-3">
-                    <svg
-                      className="h-4.5 w-4.5"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                    >
-                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
-                    </svg>{' '}
-                    <div>
-                      <h1>Connect on X</h1>
-                      <p className="text-xs text-text-muted/75">
-                        Follow for updates & insights
-                      </p>
-                    </div>
-                  </div>
-                  <ArrowUpRight className="h-4 w-4 text-text-muted/75" />
-                </a>
-                <div className="border-t border-border/25 bg-foreground pt-3">
-                  <p className="text-xs text-text-muted/50">
-                    Response within 24 hours • Available for hire
-                  </p>
                 </div>
-              </div>
-            </div>
-            <div className="space-y-3 rounded-xl border border-border/50 bg-foreground p-5">
-              <div className="space-y-2">
-                <h1 className="text-xl font-medium text-text">
-                  Send a Message
-                </h1>
-                <p>
-                  Prefer to write? Fill out the form and I'll get back to you
-                  within 24 hours
+                <ArrowUpRight className="h-4 w-4 text-text-muted/75" />
+              </a>
+              <a
+                href="https://x.com/eeridev"
+                className="flex items-center justify-between rounded-xl border border-border/75 bg-foreground p-3 transition-colors duration-200 hover:border-border hover:bg-secondary/25"
+              >
+                <div className="flex items-center gap-3">
+                  <svg
+                    className="h-4.5 w-4.5"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                  </svg>
+                  <div>
+                    <h1>Say hello on X</h1>
+                    <p className="text-xs text-text-muted/75">
+                      Updates, notes, and work in progress
+                    </p>
+                  </div>
+                </div>
+                <ArrowUpRight className="h-4 w-4 text-text-muted/75" />
+              </a>
+              <div className="border-t border-border/25 bg-foreground pt-3">
+                <p className="text-xs text-text-muted/50">
+                  Usually replies within one business day • Open to freelance
+                  and team roles
                 </p>
               </div>
-              <form className="space-y-2">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Full Name"
-                  aria-label="Full Name"
-                  className="w-full rounded-xl border border-border/50 bg-background px-4 py-2 text-text transition-colors duration-200 outline-none placeholder:text-text-muted/50 focus:border-border focus:bg-secondary/10"
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email Address"
-                  aria-label="Email Address"
-                  className="w-full rounded-xl border border-border/50 bg-background px-4 py-2 text-text transition-colors duration-200 outline-none placeholder:text-text-muted/50 focus:border-border focus:bg-secondary/10"
-                />
-                <textarea
-                  name="message"
-                  placeholder="Your Message"
-                  aria-label="Your Message"
-                  rows={6}
-                  className="h-30 w-full resize-none rounded-xl border border-border/50 bg-background px-4 py-2 text-lg text-text transition-colors duration-200 outline-none placeholder:text-text-muted/35 focus:border-border focus:bg-secondary/15"
-                />
-                <button
-                  type="button"
-                  className="flex w-full items-center justify-center gap-3 rounded-xl border border-border/50 bg-secondary/15 px-6 py-2 text-lg font-medium text-text-muted transition-colors duration-200 hover:border-border hover:bg-secondary/25 hover:text-text"
-                >
-                  <span>Send Message</span>
-                  <ArrowRight className="h-5 w-5" />
-                </button>
-              </form>
             </div>
           </div>
         </section>
