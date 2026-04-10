@@ -201,7 +201,7 @@ const featuredProjects: FeaturedProject[] = [
 
 const experienceJobs = [
   {
-    logo: '/',
+    logo: '/ive-studio-logo.png',
     position: 'Full Stack Developer',
     name: 'IVE Studio',
     date: 'Jan 2025 - Present',
@@ -213,7 +213,7 @@ const experienceJobs = [
     ],
   },
   {
-    logo: '/',
+    logo: '/ai-def-logo.png',
     position: 'Full Stack Developer',
     name: 'AI-DEF',
     date: 'Apr 2023 - Dec 2024',
