@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
 
 interface ProjectBrief {
   project: string;
@@ -211,16 +211,19 @@ export function ProjectBriefPreview({
   projectBrief,
 }: ProjectBriefPreviewProps) {
   const panelRef = useRef<HTMLDivElement | null>(null);
-  const [hasMounted, setHasMounted] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const [hasStarted, setHasStarted] = useState(false);
   const [currentBriefIndex, setCurrentBriefIndex] = useState(0);
   const [phase, setPhase] = useState<'typing' | 'holding' | 'deleting'>(
     'typing',
   );
   const [activeLineIndex, setActiveLineIndex] = useState(0);
   const [activeCharCount, setActiveCharCount] = useState(0);
+  const hasMounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
 
   const resolvedBriefs = useMemo(() => {
     if (projectBriefs && projectBriefs.length > 0) {
@@ -235,6 +238,7 @@ export function ProjectBriefPreview({
   }, [projectBrief, projectBriefs]);
 
   const currentBrief = resolvedBriefs[currentBriefIndex] ?? resolvedBriefs[0];
+  const hasStarted = prefersReducedMotion || isVisible;
 
   const lines = useMemo<PreviewLine[]>(
     () => (currentBrief ? buildPreviewLines(currentBrief) : []),
@@ -242,8 +246,6 @@ export function ProjectBriefPreview({
   );
 
   useEffect(() => {
-    setHasMounted(true);
-
     if (typeof window === 'undefined') {
       return;
     }
@@ -269,15 +271,22 @@ export function ProjectBriefPreview({
     }
 
     if (typeof IntersectionObserver === 'undefined') {
-      setIsVisible(true);
-      return;
+      const frameId = window.requestAnimationFrame(() => {
+        setIsVisible(true);
+      });
+
+      return () => {
+        window.cancelAnimationFrame(frameId);
+      };
     }
 
-    const observer = new IntersectionObserver(
+    let observer: IntersectionObserver | null = null;
+
+    observer = new IntersectionObserver(
       ([entry]) => {
         if (entry?.isIntersecting) {
           setIsVisible(true);
-          observer.disconnect();
+          observer?.disconnect();
         }
       },
       {
@@ -289,40 +298,9 @@ export function ProjectBriefPreview({
     observer.observe(element);
 
     return () => {
-      observer.disconnect();
+      observer?.disconnect();
     };
   }, [hasMounted, isVisible, prefersReducedMotion]);
-
-  useEffect(() => {
-    if (!hasMounted || resolvedBriefs.length === 0) {
-      return;
-    }
-
-    if (prefersReducedMotion) {
-      setHasStarted(true);
-      setCurrentBriefIndex(0);
-      setPhase('typing');
-      setActiveLineIndex(0);
-      setActiveCharCount(0);
-      return;
-    }
-
-    if (!isVisible || hasStarted) {
-      return;
-    }
-
-    setHasStarted(true);
-    setCurrentBriefIndex(0);
-    setPhase('typing');
-    setActiveLineIndex(0);
-    setActiveCharCount(0);
-  }, [
-    hasMounted,
-    hasStarted,
-    isVisible,
-    prefersReducedMotion,
-    resolvedBriefs.length,
-  ]);
 
   useEffect(() => {
     if (!hasStarted || prefersReducedMotion || lines.length === 0) {
