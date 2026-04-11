@@ -1,7 +1,10 @@
-import Link from 'next/link';
+'use client';
+
 import { Mail } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 
 export function Footer() {
+  const pathname = usePathname();
   const navigation = [
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
@@ -9,19 +12,24 @@ export function Footer() {
 
   return (
     <footer className="container-small flex items-center justify-between border-t border-border/25 py-6">
-      <div className="flex gap-6 text-sm text-text-muted/50">
+      <div className="flex gap-3 text-sm text-text-muted/50">
         <p>© 2026 eerinessofsilence.</p>
         <span className="h-4 w-px bg-border/25"></span>
         <nav aria-label="Primary navigation" className="flex flex-wrap gap-6">
-          {navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-full transition-colors hover:text-text"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navigation.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`text-sm transition-colors duration-200 ${
+                  isActive ? 'hidden' : 'hover:text-text/75'
+                }`}
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </nav>
       </div>
       <div className="flex gap-3 text-text-muted/50">

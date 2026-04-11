@@ -77,7 +77,7 @@ function StackPill({ src, name, tone }: StackPillProps) {
 
   return (
     <span
-      className={`inline-flex items-center gap-2 rounded-lg border border-dashed px-2 py-1 tracking-tight ${toneClass}`}
+      className={`inline-flex items-center gap-2 rounded-md border border-dashed px-2 tracking-tight ${toneClass}`}
     >
       <Image
         src={src}
@@ -109,9 +109,9 @@ export function HomeIntro() {
             />
           </div>
 
-          <div className="flex min-w-0 flex-1 flex-col gap-3">
+          <div className="space-y-2 md:space-y-4">
             <div className="flex items-center gap-3">
-              <h1 className="font-sans text-3xl font-semibold tracking-tight text-text">
+              <h1 className="font-sans text-2xl font-semibold tracking-tight text-text md:text-3xl">
                 Aleksandr Hubanov
               </h1>
               <span className="inline-flex h-6 w-fit items-center gap-3 rounded-full border border-border/25 bg-foreground px-3 text-sm text-text-muted">
@@ -120,7 +120,9 @@ export function HomeIntro() {
               </span>
             </div>
 
-            <p className="text-xl text-text-muted/75">Full-stack engineer</p>
+            <p className="text-lg text-text-muted/75 md:text-xl">
+              Full-stack engineer
+            </p>
           </div>
         </div>
 
@@ -128,11 +130,13 @@ export function HomeIntro() {
           {primaryFacts.map((fact) => {
             const Icon = fact.icon;
             const content = (
-              <div className="flex gap-2">
+              <div className="flex items-center gap-2">
                 <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-border/25 bg-secondary/50 text-text-muted">
                   <Icon className="h-3 w-3" />
                 </span>
-                <p className="tracking-tight wrap-break-word">{fact.value}</p>
+                <p className="tracking-tight wrap-break-word max-md:text-sm">
+                  {fact.value}
+                </p>
               </div>
             );
 
@@ -157,7 +161,7 @@ export function HomeIntro() {
         </div>
       </div>
 
-      <div className="tracking-tight text-text-muted">
+      <div className="leading-7 tracking-tight text-text-muted">
         <p>
           I design and ship polished web products with{' '}
           <StackPill

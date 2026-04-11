@@ -6,7 +6,7 @@ import { HomeToolkit } from '@/components/home/sections/HomeToolkit';
 
 export default function Home() {
   return (
-    <section className="container-small relative w-full pb-10">
+    <section className="relative w-full">
       <div className="flex flex-col gap-12">
         <HomeIntro />
         <HomeToolkit />

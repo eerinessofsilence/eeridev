@@ -74,7 +74,9 @@ export default function RootLayout({
         <SmoothScroll />
         <div className="relative isolate flex min-h-screen flex-col overflow-hidden">
           <Header />
-          <main className="container flex flex-1 py-8 pt-24">{children}</main>
+          <main className="container-small flex flex-1 py-8 pt-24">
+            {children}
+          </main>
           <Footer />
         </div>
       </body>

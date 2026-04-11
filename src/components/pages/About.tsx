@@ -18,7 +18,7 @@ function GitHubMark({ className }: { className?: string }) {
 
 export default function About() {
   return (
-    <main className="container-small space-y-12 py-16 font-sans">
+    <main className="space-y-12 py-16 font-sans">
       <section className="space-y-2">
         <h1 className="text-4xl font-medium text-text">
           From browser automation to <br />
@@ -35,92 +35,138 @@ export default function About() {
         </p>
       </section>
       <section className="space-y-6 leading-6">
-        <h1 className="text-2xl font-medium text-text">How it started</h1>
+        <h1 className="text-2xl font-medium text-text">Where It All Began</h1>
         <p>
           My path into programming started with a very practical task: I needed
-          to automate actions on a cryptocurrency platform. It was a simple
-          browser scenario with a few repetitive steps, and I decided to
-          optimize it with code. Once it worked, I became genuinely interested
-          in going deeper into software development.
+          to{' '}
+          <strong className="font-medium text-text">
+            automate actions on a cryptocurrency platform
+          </strong>
+          . It was a simple browser scenario with a few repetitive steps, and I
+          decided to optimize it with code. Once it worked, I became genuinely
+          interested in going deeper into{' '}
+          <strong className="font-medium text-text">
+            software development
+          </strong>
+          .
         </p>
         <p>
           At first, I learned the basics on my own through YouTube materials.
           Later, I decided to approach learning more systematically and took
-          private in-depth courses in Python and Web3. That knowledge was enough
-          to solve several more real tasks related to automation and crypto
-          tools.
+          private in-depth courses in{' '}
+          <strong className="font-medium text-text">Python and Web3</strong>.
+          That knowledge was enough to solve several more real tasks related to{' '}
+          <strong className="font-medium text-text">
+            automation and crypto tools
+          </strong>
+          .
         </p>
         <p>
-          Over time, I wanted to expand my technical stack, so I moved toward
-          backend web development. I chose Django as my main framework and
-          started building my first complete websites: working with backend
-          logic, Jinja templates, HTML and CSS, CRUD flows, and internal
-          service-oriented features.
+          Over time, I wanted to expand my technical stack, so I moved toward{' '}
+          <strong className="font-medium text-text">
+            backend web development
+          </strong>
+          . I chose <strong className="font-medium text-text">Django</strong> as
+          my main framework and started building my first complete websites:
+          working with{' '}
+          <strong className="font-medium text-text">backend logic</strong>,{' '}
+          <strong className="font-medium text-text">Jinja templates</strong>,{' '}
+          <strong className="font-medium text-text">HTML and CSS</strong>,{' '}
+          <strong className="font-medium text-text">CRUD flows</strong>, and
+          internal service-oriented features.
         </p>
         <p>
           In parallel, I needed to build a software solution for testing and
-          interacting with a cryptocurrency application. That led me to
-          Playwright, which I used for browser automation and end-to-end
-          scenarios.
+          interacting with a cryptocurrency application. That led me to{' '}
+          <strong className="font-medium text-text">Playwright</strong>, which I
+          used for{' '}
+          <strong className="font-medium text-text">
+            browser automation and end-to-end scenarios
+          </strong>
+          .
         </p>
         <p>
-          Later, I went deeper into Java while working on my own Minecraft
-          server. I wrote several solid plugins for it that solved real gameplay
-          and server-side problems. The project itself was eventually paused for
-          external reasons, but that stage gave me a strong understanding of
-          architecture, event-driven systems, and server-side logic.
+          Later, I went deeper into{' '}
+          <strong className="font-medium text-text">Java</strong> while working
+          on my own{' '}
+          <strong className="font-medium text-text">Minecraft server</strong>. I
+          wrote several solid plugins for it that solved real gameplay and
+          server-side problems. The project itself was eventually paused for
+          external reasons, but that stage gave me a strong understanding of{' '}
+          <strong className="font-medium text-text">
+            architecture, event-driven systems, and server-side logic
+          </strong>
+          .
         </p>
         <p>
-          After that, I completed a Rust course. Out of all the languages I had
-          studied, it felt the most interesting in terms of architecture,
-          performance, and memory safety. I genuinely liked it, but at that
-          point I decided not to go deeper because I did not see a fast enough
-          career path for myself in the areas where Rust is most commonly used.
+          After that, I completed a{' '}
+          <strong className="font-medium text-text">Rust course</strong>. Out of
+          all the languages I had studied, it felt the most interesting in terms
+          of{' '}
+          <strong className="font-medium text-text">
+            architecture, performance, and memory safety
+          </strong>
+          . I genuinely liked it, but at that point I decided not to go deeper
+          because I did not see a fast enough career path for myself in the
+          areas where Rust is most commonly used.
         </p>
         <p>
-          The next step was TypeScript, and that is where I reached the level of
-          full-stack web development. I started building production-ready
-          websites with React and Tailwind CSS, shaping frontend architecture,
-          thinking through UX, components, and the interaction between frontend
-          and backend.
+          The next step was{' '}
+          <strong className="font-medium text-text">TypeScript</strong>, and
+          that is where I reached the level of{' '}
+          <strong className="font-medium text-text">
+            full-stack web development
+          </strong>
+          . I started building production-ready websites with{' '}
+          <strong className="font-medium text-text">
+            React and Tailwind CSS
+          </strong>
+          , shaping frontend architecture, thinking through UX, components, and
+          the interaction between frontend and backend.
         </p>
         <p>
-          That stage led directly to my first job offer for a Full Stack
-          Developer role. It felt like the natural result of the entire journey:
-          from a simple browser automation script to building complete web
-          products.
+          That stage led directly to my first job offer for a{' '}
+          <strong className="font-medium text-text">
+            Full Stack Developer role
+          </strong>
+          . It felt like the natural result of the entire journey: from a simple
+          browser automation script to building{' '}
+          <strong className="font-medium text-text">
+            complete web products
+          </strong>
+          .
         </p>
       </section>
       <section className="space-y-6">
-        <h1 className="text-2xl font-medium text-text">How I Work</h1>
+        <h1 className="text-2xl font-medium text-text">The Way I Build</h1>
         <div className="grid grid-cols-2 gap-6">
           <div className="space-y-2 rounded-xl border border-border/25 bg-foreground p-5">
-            <h1 className="text-lg text-text">Start with a real problem</h1>
-            <p>
+            <h1 className="text-text">Real Problems First</h1>
+            <p className="text-sm">
               I got into programming through automation, so I naturally focus on
               practical value, clear use cases, and software that solves a
               concrete task.
             </p>
           </div>
           <div className="space-y-2 rounded-xl border border-border/25 bg-foreground p-5">
-            <h1 className="text-lg text-text">Learn by building</h1>
-            <p>
+            <h1 className="text-text">Learning Through Building</h1>
+            <p className="text-sm">
               Every step in my stack came through real implementation work:
               automation, backend systems, testing tools, plugins, and
               full-stack product development.
             </p>
           </div>
           <div className="space-y-2 rounded-xl border border-border/25 bg-foreground p-5">
-            <h1 className="text-lg text-text">Think across the stack</h1>
-            <p>
+            <h1 className="text-text">End-to-End Thinking</h1>
+            <p className="text-sm">
               I am comfortable moving between backend logic, frontend
               architecture, browser automation, and the technical details that
               connect them into one product.
             </p>
           </div>
           <div className="space-y-2 rounded-xl border border-border/25 bg-foreground p-5">
-            <h1 className="text-lg text-text">Build systems that hold up</h1>
-            <p>
+            <h1 className="text-text">Built for the Long Run</h1>
+            <p className="text-sm">
               Architecture, event-driven logic, testing, maintainability, and UX
               all matter because software has to keep working after the first
               release.
@@ -129,11 +175,12 @@ export default function About() {
         </div>
       </section>
       <section className="space-y-6">
-        <h1 className="text-2xl font-medium text-text">Beyond the Code</h1>
+        <h1 className="text-2xl font-medium text-text">Behind the Craft</h1>
         <div className="flex flex-col gap-6 rounded-2xl border border-border/25 bg-foreground p-5">
           <div className="space-y-2">
             <h1 className="inline-flex items-center gap-3 text-text">
-              <span className="h-0.5 w-4 bg-border/50"> </span>What shaped me
+              <span className="h-0.5 w-4 bg-border/50"> </span>What Shaped My
+              Thinking
             </h1>
             <p className="text-sm leading-6">
               Different technologies taught me different ways of thinking.
@@ -146,7 +193,8 @@ export default function About() {
           <hr className="text-border/25" />
           <div className="space-y-2">
             <h1 className="inline-flex items-center gap-3 text-text">
-              <span className="h-0.5 w-4 bg-border/50"> </span>What drives me
+              <span className="h-0.5 w-4 bg-border/50"> </span>What Keeps Me
+              Building
             </h1>
             <p className="text-sm leading-6">
               What interests me most now is building complete products where
@@ -158,7 +206,9 @@ export default function About() {
         </div>
       </section>
       <section className="space-y-6">
-        <h1 className="text-2xl font-medium text-text">Let&apos;s connect</h1>
+        <h1 className="text-2xl font-medium text-text">
+          Start the Conversation
+        </h1>
         <p className="max-w-lg leading-6 text-pretty">
           Whether you have a product idea, want to collaborate, or just want to
           talk about web development, automation, or backend systems, I&apos;d

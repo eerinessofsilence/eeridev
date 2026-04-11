@@ -376,8 +376,8 @@ export function ContributionMap() {
   }
 
   return (
-    <section className="">
-      <div className="overflow-x-auto pb-2">
+    <section className="md:rounded-2xl md:border md:border-border/25 md:bg-foreground md:p-5 lg:mx-5">
+      <div className="overflow-x-auto">
         {status === 'loading' && <LoadingState />}
         {status === 'error' && <ErrorState />}
 

@@ -1,6 +1,10 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export function Header() {
+  const pathname = usePathname();
   const navigation = [
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
@@ -14,15 +18,20 @@ export function Header() {
         </Link>
 
         <nav aria-label="Primary navigation" className="flex flex-wrap gap-6">
-          {navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-full text-sm transition-colors hover:text-text hover:underline"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navigation.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`text-sm transition-colors duration-200 ${
+                  isActive ? 'text-text' : 'hover:text-text'
+                }`}
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </nav>
       </div>
     </header>
