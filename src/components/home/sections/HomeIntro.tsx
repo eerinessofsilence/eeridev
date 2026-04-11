@@ -77,7 +77,7 @@ function StackPill({ src, name, tone }: StackPillProps) {
 
   return (
     <span
-      className={`inline-flex items-center gap-2 rounded-md border border-dashed px-2 tracking-tight ${toneClass}`}
+      className={`inline-flex items-center gap-2 rounded-md border border-dashed px-2 py-1 text-sm tracking-tight ${toneClass}`}
     >
       <Image
         src={src}
@@ -161,7 +161,7 @@ export function HomeIntro() {
         </div>
       </div>
 
-      <div className="leading-7 tracking-tight text-text-muted">
+      <div className="leading-8 tracking-tight text-text-muted">
         <p>
           I design and ship polished web products with{' '}
           <StackPill

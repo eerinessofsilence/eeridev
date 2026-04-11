@@ -18,38 +18,44 @@ export function HomeContact() {
               you need.
             </p>
           </div>
-          <a
-            href="mailto:eeri.dev@gmail.com"
-            className="flex items-center justify-between rounded-xl border border-border/75 bg-foreground p-3 transition-colors duration-200 hover:border-border hover:bg-secondary/25"
-          >
-            <div className="flex items-center gap-3">
-              <Mail className="h-5 w-5 text-text-muted/75" />
-              <div>
-                <h1>eeri.dev@gmail.com</h1>
-                <p className="text-xs text-text-muted/75">
-                  Project inquiries and short questions
-                </p>
+          <div className="flex gap-3">
+            <a
+              href="mailto:eeri.dev@gmail.com"
+              className="flex w-full items-center justify-between rounded-xl border border-border/75 bg-foreground p-3 transition-colors duration-200 hover:border-border hover:bg-secondary/25"
+            >
+              <div className="flex items-center gap-3">
+                <Mail className="h-5 w-5 text-text-muted/75" />
+                <div>
+                  <h1>eeri.dev@gmail.com</h1>
+                  <p className="text-xs text-text-muted/75">
+                    Project inquiries and short questions
+                  </p>
+                </div>
               </div>
-            </div>
-            <ArrowUpRight className="h-4 w-4 text-text-muted/75" />
-          </a>
-          <a
-            href="https://x.com/eeridev"
-            className="flex items-center justify-between rounded-xl border border-border/75 bg-foreground p-3 transition-colors duration-200 hover:border-border hover:bg-secondary/25"
-          >
-            <div className="flex items-center gap-3">
-              <svg className="h-4.5 w-4.5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
-              </svg>
-              <div>
-                <h1>Say hello on X</h1>
-                <p className="text-xs text-text-muted/75">
-                  Updates, notes, and work in progress
-                </p>
+              <ArrowUpRight className="h-4 w-4 text-text-muted/75" />
+            </a>
+            <a
+              href="https://x.com/eeridev"
+              className="flex w-full items-center justify-between rounded-xl border border-border/75 bg-foreground p-3 transition-colors duration-200 hover:border-border hover:bg-secondary/25"
+            >
+              <div className="flex items-center gap-3">
+                <svg
+                  className="h-4.5 w-4.5"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                </svg>
+                <div>
+                  <h1>Say hello on X</h1>
+                  <p className="text-xs text-text-muted/75">
+                    Updates, notes, and work in progress
+                  </p>
+                </div>
               </div>
-            </div>
-            <ArrowUpRight className="h-4 w-4 text-text-muted/75" />
-          </a>
+              <ArrowUpRight className="h-4 w-4 text-text-muted/75" />
+            </a>
+          </div>
           <div className="border-t border-border/25 bg-foreground pt-3">
             <p className="text-xs text-text-muted/50">
               Usually replies within one business day • Open to freelance and
