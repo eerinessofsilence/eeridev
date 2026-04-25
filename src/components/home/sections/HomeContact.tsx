@@ -18,7 +18,7 @@ export function HomeContact() {
               you need.
             </p>
           </div>
-          <div className="flex gap-3">
+          <div className="flex flex-col gap-3 md:flex-row">
             <a
               href="mailto:eeri.dev@gmail.com"
               className="flex w-full items-center justify-between rounded-xl border border-border/75 bg-foreground p-3 transition-colors duration-200 hover:border-border hover:bg-secondary/25"

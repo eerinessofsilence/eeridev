@@ -21,7 +21,7 @@ const primaryFacts: readonly Fact[] = [
   {
     icon: Code2,
     label: 'Specialty',
-    value: 'Full-Stack Engineering',
+    value: 'Full-Stack Developer',
   },
   {
     icon: MapPin,
@@ -37,7 +37,7 @@ const primaryFacts: readonly Fact[] = [
   {
     icon: Clock3,
     label: 'Hours',
-    value: 'UTC+2 with flexible overlap',
+    value: 'UTC+2',
   },
   {
     icon: Globe,
@@ -111,22 +111,22 @@ export function HomeIntro() {
 
           <div className="space-y-2 md:space-y-4">
             <div className="flex items-center gap-3">
-              <h1 className="font-sans text-2xl font-semibold tracking-tight text-text md:text-3xl">
+              <h1 className="font-sans text-xl font-semibold tracking-tight text-text md:text-2xl lg:text-3xl">
                 Aleksandr Hubanov
               </h1>
-              <span className="inline-flex h-6 w-fit items-center gap-3 rounded-full border border-border/25 bg-foreground px-3 text-sm text-text-muted">
-                <span className="h-2 w-2 rounded-full bg-emerald-500" />
+              <span className="inline-flex h-6 w-fit items-center gap-1.5 rounded-full border border-border/25 bg-foreground px-1.5 text-xs text-nowrap text-text-muted md:gap-3 md:px-3 md:text-sm">
+                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500 md:h-2 md:w-2" />
                 Open to new projects
               </span>
             </div>
 
-            <p className="text-lg text-text-muted/75 md:text-xl">
+            <p className="text-text-muted/75 md:text-lg lg:text-xl">
               Full-stack engineer
             </p>
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-2">
+        <div className="mx-auto grid grid-cols-2 gap-x-12 gap-y-3 md:gap-x-36">
           {primaryFacts.map((fact) => {
             const Icon = fact.icon;
             const content = (

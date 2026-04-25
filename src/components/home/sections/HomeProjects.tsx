@@ -10,7 +10,7 @@ export function HomeProjects() {
       <p className="text-sm tracking-tight text-text-muted/50 uppercase">
         Selected Projects
       </p>
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {featuredProjects.map((project) => (
           <div
             key={project.name}
@@ -27,7 +27,9 @@ export function HomeProjects() {
             </div>
             <div className="space-y-5 p-5">
               <div className="flex items-center justify-between">
-                <h1 className="text-lg font-medium text-text">{project.name}</h1>
+                <h1 className="text-lg font-medium text-text">
+                  {project.name}
+                </h1>
                 <div className="flex gap-3">
                   {project.githubLink ? (
                     <a href={project.githubLink}>
