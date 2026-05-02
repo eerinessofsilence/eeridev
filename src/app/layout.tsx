@@ -18,15 +18,15 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://eeri.dev'),
   title: {
-    default: 'eeri.dev',
+    default: 'Aleksandr Hubanov | Full-Stack Engineer',
     template: '%s | eeri.dev',
   },
   description:
-    'Personal website and developer portfolio focused on web engineering, product work, and experiments.',
+    'Full-stack engineer building polished web products with TypeScript, React, Next.js, and Tailwind CSS.',
   applicationName: 'eeri.dev',
-  authors: [{ name: 'eeri', url: 'https://eeri.dev' }],
-  creator: 'eeri',
-  publisher: 'eeri',
+  authors: [{ name: 'Aleksandr Hubanov', url: 'https://eeri.dev' }],
+  creator: 'Aleksandr Hubanov',
+  publisher: 'Aleksandr Hubanov',
   keywords: [
     'eeri.dev',
     'developer portfolio',
@@ -41,15 +41,24 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://eeri.dev',
     siteName: 'eeri.dev',
-    title: 'eeri.dev',
+    title: 'Aleksandr Hubanov | Full-Stack Engineer',
     description:
-      'Personal website and developer portfolio focused on web engineering, product work, and experiments.',
+      'Full-stack engineer building polished web products with TypeScript, React, Next.js, and Tailwind CSS.',
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'Aleksandr Hubanov, full-stack engineer portfolio preview',
+      },
+    ],
   },
   twitter: {
-    card: 'summary',
-    title: 'eeri.dev',
+    card: 'summary_large_image',
+    title: 'Aleksandr Hubanov | Full-Stack Engineer',
     description:
-      'Personal website and developer portfolio focused on web engineering, product work, and experiments.',
+      'Full-stack engineer building polished web products with TypeScript, React, Next.js, and Tailwind CSS.',
+    images: ['/opengraph-image'],
   },
   robots: {
     index: true,
