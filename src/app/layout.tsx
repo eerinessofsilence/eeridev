@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { SmoothScroll } from '@/components/providers/SmoothScroll';
 import './globals.css';
 
 const geistSans = Geist({
@@ -46,9 +45,9 @@ export const metadata: Metadata = {
       'Full-stack engineer building polished web products with TypeScript, React, Next.js, and Tailwind CSS.',
     images: [
       {
-        url: '/opengraph-image',
-        width: 1200,
-        height: 630,
+        url: '/preview-page.png',
+        width: 1440,
+        height: 896,
         alt: 'Aleksandr Hubanov, full-stack engineer portfolio preview',
       },
     ],
@@ -58,7 +57,7 @@ export const metadata: Metadata = {
     title: 'Aleksandr Hubanov | Full-Stack Engineer',
     description:
       'Full-stack engineer building polished web products with TypeScript, React, Next.js, and Tailwind CSS.',
-    images: ['/opengraph-image'],
+    images: ['/preview-page.png'],
   },
   robots: {
     index: true,
@@ -80,7 +79,6 @@ export default function RootLayout({
         suppressHydrationWarning
         className="min-h-screen bg-background font-mono text-text-muted"
       >
-        <SmoothScroll />
         <div className="relative isolate flex min-h-screen flex-col overflow-hidden">
           <Header />
           <main className="container-small flex flex-1 py-8 pt-24">
