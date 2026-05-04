@@ -126,7 +126,7 @@ export function HomeIntro() {
           </div>
         </div>
 
-        <div className="mx-auto grid grid-cols-2 gap-x-12 gap-y-3 md:gap-x-36">
+        <div className="grid grid-cols-2 gap-y-3">
           {primaryFacts.map((fact) => {
             const Icon = fact.icon;
             const content = (

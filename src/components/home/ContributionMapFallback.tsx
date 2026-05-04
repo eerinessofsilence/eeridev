@@ -42,59 +42,61 @@ function getMonthGridColumn(
 
 export function ContributionMapFallback() {
   return (
-    <section className="">
+    <section className="w-fit max-w-full">
       <div className="overflow-x-auto pb-2">
-        <div
-          className="mb-4 grid gap-x-1 text-lg tracking-tight text-text-muted/65"
-          style={{
-            gridTemplateColumns: `repeat(${placeholderWeeks.length}, ${contributionCellSize})`,
-          }}
-        >
-          {placeholderMonths.map((month, index) => (
-            <span
-              key={month.label}
-              style={{
-                gridColumn: getMonthGridColumn(
-                  placeholderMonths,
-                  index,
-                  placeholderWeeks.length,
-                ),
-              }}
-              className="justify-self-center whitespace-nowrap"
-            >
-              {month.label}
-            </span>
-          ))}
-        </div>
+        <div className="w-max">
+          <div
+            className="mb-4 grid gap-x-1 text-lg tracking-tight text-text-muted/65"
+            style={{
+              gridTemplateColumns: `repeat(${placeholderWeeks.length}, ${contributionCellSize})`,
+            }}
+          >
+            {placeholderMonths.map((month, index) => (
+              <span
+                key={month.label}
+                style={{
+                  gridColumn: getMonthGridColumn(
+                    placeholderMonths,
+                    index,
+                    placeholderWeeks.length,
+                  ),
+                }}
+                className="justify-self-start whitespace-nowrap"
+              >
+                {month.label}
+              </span>
+            ))}
+          </div>
 
-        <div
-          className="grid grid-rows-7 gap-0.5"
-          style={{
-            gridAutoFlow: 'column',
-            gridTemplateColumns: `repeat(${placeholderWeeks.length}, ${contributionCellSize})`,
-          }}
-        >
-          {placeholderWeeks.flat().map((cell) => (
-            <span
-              key={cell.date}
-              className="aspect-square animate-pulse rounded-[0.26rem] bg-white/4"
-            />
-          ))}
-        </div>
+          <div
+            className="grid grid-rows-7 gap-0.5"
+            style={{
+              gridAutoFlow: 'column',
+              gridTemplateColumns: `repeat(${placeholderWeeks.length}, ${contributionCellSize})`,
+            }}
+          >
+            {placeholderWeeks.flat().map((cell) => (
+              <span
+                key={cell.date}
+                className="aspect-square animate-pulse rounded-[0.26rem] bg-white/4"
+              />
+            ))}
+          </div>
 
-        <div className="mt-5 flex items-center justify-between gap-6 text-lg tracking-tight text-text-muted/55">
-          <p>Loading live GitHub activity...</p>
-          <div className="flex items-center gap-3">
-            <span>Less</span>
-            <div className="flex gap-1.5">
-              {intensityClasses.map((tone, index) => (
-                <span
-                  key={index}
-                  className={`h-5 w-5 rounded-[0.26rem] ${tone}`}
-                />
-              ))}
+          <div className="mt-5 flex items-center justify-between gap-6 text-lg tracking-tight text-text-muted/55">
+            <p>Loading live GitHub activity...</p>
+            <div className="flex items-center gap-3">
+              <span>Less</span>
+              <div className="flex gap-1.5">
+                {intensityClasses.map((tone, index) => (
+                  <span
+                    key={index}
+                    className={`h-5 w-5 rounded-[0.26rem] ${tone}`}
+                  />
+                ))}
+              </div>
+              <span>More</span>
             </div>
-            <span>More</span>
           </div>
         </div>
       </div>

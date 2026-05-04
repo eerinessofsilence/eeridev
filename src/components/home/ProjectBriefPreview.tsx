@@ -1,6 +1,12 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from 'react';
 
 interface ProjectBrief {
   project: string;
@@ -434,9 +440,9 @@ export function ProjectBriefPreview({
   return (
     <div
       ref={panelRef}
-      className="project-brief-panel group relative overflow-hidden rounded-xl border border-border/25 bg-background"
+      className="project-brief-panel group relative overflow-hidden rounded-xl border border-border/50 bg-background/75"
     >
-      <div className="border-b border-border/15 bg-foreground px-4 py-3">
+      <div className="border-b border-border/50 bg-foreground px-4 py-3">
         <div className="font-mono text-xs tracking-wide text-text-muted/75">
           project-brief.json
         </div>

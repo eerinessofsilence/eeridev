@@ -8,11 +8,11 @@ import type {
 import { siteProfile } from '@/lib/site';
 
 const intensityClasses = [
-  'bg-secondary/25',
-  'bg-secondary/75',
-  'bg-secondary',
-  'bg-text-muted/50',
-  'bg-text-muted/75',
+  'bg-text-muted/5',
+  'bg-text-muted/10',
+  'bg-text-muted/20',
+  'bg-text-muted/40',
+  'bg-text-muted/80',
 ] as const;
 
 const contributionCellSize = '0.6875rem';
@@ -100,8 +100,13 @@ function formatContributionTooltip(cell: ContributionCell) {
 
 function LoadingState() {
   return (
-    <>
-      <div className="mb-4 flex justify-between text-lg tracking-tight text-text-muted/75">
+    <div className="w-max">
+      <div
+        className="mb-4 grid gap-0.5 text-lg tracking-tight text-text-muted/75"
+        style={{
+          gridTemplateColumns: `repeat(${placeholderWeeks.length}, ${contributionCellSize})`,
+        }}
+      >
         {placeholderMonths.map((month, index) => (
           <span
             key={month.label}
@@ -112,7 +117,7 @@ function LoadingState() {
                 placeholderWeeks.length,
               ),
             }}
-            className="justify-self-center whitespace-nowrap"
+            className="justify-self-start whitespace-nowrap"
           >
             {month.label}
           </span>
@@ -149,7 +154,7 @@ function LoadingState() {
           <span>More</span>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
@@ -376,15 +381,15 @@ export function ContributionMap() {
   }
 
   return (
-    <section className="md:rounded-2xl md:border md:border-border/25 md:bg-foreground md:p-5 lg:mx-5">
-      <div className="overflow-x-auto">
+    <section className="w-fit max-w-full md:rounded-2xl md:border md:border-border/25 md:bg-foreground md:p-5">
+      <div className="overflow-x-auto pb-2">
         {status === 'loading' && <LoadingState />}
         {status === 'error' && <ErrorState />}
 
         {status === 'ready' && data && (
-          <>
+          <div className="w-max">
             <div
-              className="mb-4 flex justify-between text-lg tracking-tight text-text-muted/50"
+              className="mb-4 grid gap-1 text-lg tracking-tight text-text-muted/50"
               style={{
                 gridTemplateColumns: `repeat(${data.weeks.length}, ${contributionCellSize})`,
               }}
@@ -399,7 +404,7 @@ export function ContributionMap() {
                       data.weeks.length,
                     ),
                   }}
-                  className="justify-self-center text-xs whitespace-nowrap"
+                  className="justify-self-start text-sm whitespace-nowrap"
                 >
                   {month.label}
                 </span>
@@ -498,7 +503,7 @@ export function ContributionMap() {
                 <span>More</span>
               </div>
             </div>
-          </>
+          </div>
         )}
       </div>
     </section>
